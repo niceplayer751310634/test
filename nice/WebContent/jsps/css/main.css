@@ -1,0 +1,49 @@
+* {
+	font-size: 10pt;
+	margin: 0;
+}
+
+body {
+	text-align: center;
+}
+
+.table {
+	width: 100%;
+	height: 100%;
+	border: 1px solid #000000;
+	border-collapse: collapse;
+}
+
+.table td {
+	border: 1px solid #000000;
+}
+
+.trTop {
+	background: #80ffff;
+}
+
+.tdTop {
+	text-align: center;
+	height: 100px;
+}
+
+.tdLeft {
+	width: 190px;
+	background: #80ffff;
+}
+
+.tdSearch {
+	height: 55px;
+	border-bottom-width: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.tdBody {
+	border-top-width: 0px, 50%;
+}
+
+iframe {
+	width: 100%;
+	height: 100%;
+}
