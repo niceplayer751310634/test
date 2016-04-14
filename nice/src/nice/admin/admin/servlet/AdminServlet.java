@@ -18,6 +18,26 @@ public class AdminServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
 	private AdminService adminService = new AdminService();
 	
+	public String findAll(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		req.setAttribute("user",adminService.findAll());
+		return "f:/adminjsps/admin/user/list.jsp";
+	}
+	
+	public String delete(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String uid = req.getParameter("uid");
+		adminService.delete(uid);
+		return findAll(req, resp);
+	}
+	
+	public String delete1(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String uid = req.getParameter("uid");
+		adminService.delete1(uid);
+		return findAll(req, resp);
+	}
+	
 	/**
 	 * 登录功能
 	 * @param req
