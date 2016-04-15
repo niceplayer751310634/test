@@ -13,7 +13,7 @@
     <h2 style="text-align: center;">评论列表</h2>
     <table align="center" border="1" cellpadding="0" cellspacing="0">
     	<tr class="trTitle">
-    		<th width="100%;">评论</th>
+    		<th width="1000px;">评论</th>
     	</tr>
 	<c:forEach items="${order}" var="order">    	
 	    <tr>

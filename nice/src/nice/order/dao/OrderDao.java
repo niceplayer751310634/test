@@ -44,7 +44,8 @@ public class OrderDao {
 	}
 	
 	public List<Order> findcomm(String bid) throws SQLException{
-		String sql = "select * from t_order where oid=(select oid from t_orderitem where bid=?)";
+		String sql = "select * from t_order where commsta=1 and oid in (select oid from t_orderitem where bid=?)";
+		String sql1= "select * from t_order where commsta=1";
 		return qr.query(sql, new BeanListHandler<Order>(Order.class),bid);
 	}
 	
