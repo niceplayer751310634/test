@@ -1,0 +1,28 @@
+* {
+	font-size: 10pt;
+	margin: 0 auto;
+}
+
+body {
+	text-align: center;
+}
+
+.table {
+	width: 100%;
+	height: 100%;
+	border: 1px solid #000000;
+	border-collapse: collapse;
+}
+
+.table td {
+	border: 1px solid #000000;
+}
+
+.tr {
+	background: #80ffff;
+}
+
+iframe {
+	width: 100%;
+	height: 100%;
+}
