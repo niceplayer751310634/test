@@ -107,13 +107,13 @@ public class UserDao {
 	public void add(User user) throws SQLException {
 		String sql = "insert into t_user values(?,?,?,?,?,?)";
 		Object[] params = {user.getUid(), user.getLoginname(), user.getLoginpass(),
-				user.getEmail(), user.isStatus(), user.getActivationCode()};
+				user.getEmail(), user.getStatus(), user.getActivationCode()};
 		qr.update(sql, params);
 	}
 	public void add1(User user) throws SQLException {
 		String sql = "insert into t_user values(?,?,?,?,?,?)";
 		Object[] params = {user.getUid(), user.getLoginname(), user.getLoginpass(),
-				user.getEmail(), user.isStatus(), user.getActivationCode()};
+				user.getEmail(), user.getStatus(), user.getActivationCode()};
 		qr.update(sql, params);
 	}
 }

@@ -16,7 +16,7 @@ public class User {
 	private String loginname;//登录名
 	private String loginpass;//登录密码
 	private String email;//邮箱
-	private boolean status;//状态，true表示已激活，或者未激活
+	private int status;//状态，true表示已激活，或者未激活
 	private String activationCode;//激活码，它是唯一值！即每个用户的激活码是不同的！
 	
 	// 注册表单
@@ -64,10 +64,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public boolean isStatus() {
+	public int getStatus() {
 		return status;
 	}
-	public void setStatus(boolean status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 	public String getActivationCode() {

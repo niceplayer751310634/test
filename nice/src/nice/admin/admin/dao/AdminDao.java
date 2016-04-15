@@ -32,7 +32,7 @@ public class AdminDao {
 	}
 	
 	public void delete(String uid) throws SQLException {
-		String sql = "UPDATE t_user SET status = 0 WHERE uid =?";
+		String sql = "UPDATE t_user SET status = 2 WHERE uid =?";
 		qr.update(sql, uid);
 	}
 	

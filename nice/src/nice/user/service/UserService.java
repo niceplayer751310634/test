@@ -65,7 +65,7 @@ public class UserService {
 		try {
 			User user = userDao.findByCode(code);
 			if(user == null) throw new UserException("无效的激活码！");
-			if(user.isStatus()) throw new UserException("您已经激活过了，不要二次激活！");
+			if(user.getStatus()==1) throw new UserException("您已经激活过了，不要二次激活！");
 			userDao.updateStatus(user.getUid(), true);
 		} catch(SQLException e) {
 			throw new RuntimeException(e);
@@ -107,7 +107,7 @@ public class UserService {
 	 */
 	public void regist(User user) throws SQLException, IOException, MessagingException {
 		user.setUid(CommonUtils.uuid());
-		user.setStatus(false);
+		user.setStatus(0);
 		user.setActivationCode(CommonUtils.uuid() + CommonUtils.uuid());
 		userDao.add(user);
 		Properties prop = new Properties();

@@ -236,11 +236,15 @@ public class UserServlet extends BaseServlet {
 			req.setAttribute("user", formUser);
 			return "f:/jsps/user/login.jsp";
 		} else {
-			if(!user.isStatus()) {
+			if(user.getStatus()==0) {
 				req.setAttribute("msg", "您还没有激活！");
 				req.setAttribute("user", formUser);
 				return "f:/jsps/user/login.jsp";				
-			} else {
+			}if(user.getStatus()==2){
+				req.setAttribute("msg", "您被封了！");
+				req.setAttribute("user", formUser);
+				return "f:/jsps/user/login.jsp";				
+			}else {
 				req.getSession().setAttribute("sessionUser", user);
 				String loginname = user.getLoginname();
 				loginname = URLEncoder.encode(loginname, "utf-8");
