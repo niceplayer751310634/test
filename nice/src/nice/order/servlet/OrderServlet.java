@@ -110,18 +110,6 @@ public class OrderServlet extends BaseServlet {
 		return null;*/
 	}
 	
-	/**
-	 * 回馈方法
-	 * 当支付成功时，易宝会访问这里
-	 * 用两种方法访问：
-	 * 1. 引导用户的浏览器重定向(如果用户关闭了浏览器，就不能访问这里了)
-	 * 2. 易宝的服务器会使用点对点通讯的方法访问这个方法。（必须回馈success，不然易宝服务器会一直调用这个方法）
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String back(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		/*
@@ -192,9 +180,6 @@ public class OrderServlet extends BaseServlet {
 	public String confirm(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String oid = req.getParameter("oid");
-		/*
-		 * 校验订单状态
-		 */
 		int status = orderService.findStatus(oid);
 		if(status != 3) {
 			req.setAttribute("code", "error");
@@ -237,13 +222,12 @@ public class OrderServlet extends BaseServlet {
 			return "f:/jsps/msg.jsp";
 		}
 		Order order = new Order();
-		order.setOid(CommonUtils.uuid());//设置主键
-		order.setOrdertime(String.format("%tF %<tT", new Date()));//下单时间
-		order.setStatus(1);//设置状态，1表示未付款
-		order.setAddress(req.getParameter("address"));//设置收货地址
+		order.setOid(CommonUtils.uuid());
+		order.setOrdertime(String.format("%tF %<tT", new Date()));
+		order.setStatus(1);
+		order.setAddress(req.getParameter("address"));
 		User owner = (User)req.getSession().getAttribute("sessionUser");
-		order.setOwner(owner);//设置订单所有者
-		
+		order.setOwner(owner);
 		BigDecimal total = new BigDecimal("0");
 		for(CartItem cartItem : cartItemList) {
 			total = total.add(new BigDecimal(cartItem.getSubtotal() + ""));
@@ -266,14 +250,6 @@ public class OrderServlet extends BaseServlet {
 		return "f:/jsps/order/ordersucc.jsp";
 	}
 	
-	/**
-	 * 我的订单
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String myOrders(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		int pc = getPc(req);
@@ -283,5 +259,12 @@ public class OrderServlet extends BaseServlet {
 		pb.setUrl(url);
 		req.setAttribute("pb", pb);
 		return "f:/jsps/order/list.jsp";
+	}
+	
+	public String findcomm(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String bid=req.getParameter("bid");
+		req.setAttribute("order",orderService.findcomm(bid));
+		return "f:/jsps/book/comm.jsp";
 	}
 }

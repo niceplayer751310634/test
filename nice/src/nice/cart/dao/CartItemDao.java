@@ -40,21 +40,9 @@ public class CartItemDao {
 	 * @throws SQLException 
 	 */
 	public List<CartItem> loadCartItems(String cartItemIds) throws SQLException {
-		/*
-		 * 1. 把cartItemIds转换成数组
-		 */
 		Object[] cartItemIdArray = cartItemIds.split(",");
-		/*
-		 * 2. 生成wehre子句
-		 */
 		String whereSql = toWhereSql(cartItemIdArray.length);
-		/*
-		 * 3. 生成sql语句
-		 */
 		String sql = "select * from t_cartitem c, t_book b where c.bid=b.bid and " + whereSql;
-		/*
-		 * 4. 执行sql，返回List<CartItem>
-		 */
 		return toCartItemList(qr.query(sql, new MapListHandler(), cartItemIdArray));
 	}
 	

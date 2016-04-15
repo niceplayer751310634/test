@@ -1,6 +1,7 @@
 package nice.order.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import nice.order.dao.OrderDao;
 import nice.order.domain.Order;
@@ -81,12 +82,15 @@ public class OrderService {
 		}
 	}
 	
-	/**
-	 * 我的订单
-	 * @param uid
-	 * @param pc
-	 * @return
-	 */
+	
+	public  List<Order> findcomm(String bid) {
+		try {
+			return orderDao.findcomm(bid);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public PageBean<Order> myOrders(String uid, int pc) {
 		try {
 			JdbcUtils.beginTransaction();

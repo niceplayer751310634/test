@@ -61,10 +61,9 @@
   			</form>
   			<a id="btn" href="javascript:$('#form1').submit();"></a>
   		</div>
-  		<div>
-		评论
-		
-		</div>
+	</div>
+	<div>
+		<a href="<c:url value='/OrderServlet?method=findcomm&bid=${book.bid }'/>">评论</a>
 	</div>
   </div>
   </body>
