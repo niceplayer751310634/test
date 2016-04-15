@@ -23,6 +23,15 @@ public class OrderService {
 		}
 	}
 	
+	public void updatecomm(String oid, String comm) {
+		try {
+			orderDao.updatecomm(oid, comm);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	
 	/**
 	 * 查询订单状态
 	 * @param oid

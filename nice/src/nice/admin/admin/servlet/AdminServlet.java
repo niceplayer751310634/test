@@ -38,19 +38,28 @@ public class AdminServlet extends BaseServlet {
 		return findAll(req, resp);
 	}
 	
-	/**
-	 * 登录功能
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
+	public String deletecomm(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String oid = req.getParameter("oid");
+		adminService.deletecomm(oid);
+		return findcomm(req, resp);
+	}
+	
+	public String deletecomm1(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String oid = req.getParameter("oid");
+		adminService.deletecomm1(oid);
+		return findcomm(req, resp);
+	}
+	
+	public String findcomm(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		req.setAttribute("order",adminService.findcomm());
+		return "f:/adminjsps/admin/comment/comm.jsp";
+	}
+	
 	public String login(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		/*
-		 * 1. 封装表单数据到Admin
-		 */
 		Admin form = CommonUtils.toBean(req.getParameterMap(), Admin.class);
 		Admin admin = adminService.login(form);
 		if(admin == null) {

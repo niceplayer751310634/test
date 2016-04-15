@@ -9,6 +9,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import nice.admin.admin.domain.Admin;
 import nice.jdbc.TxQueryRunner;
+import nice.order.domain.Order;
 import nice.user.domain.User;
 
 public class AdminDao {
@@ -31,6 +32,11 @@ public class AdminDao {
 		return qr.query(sql, new BeanListHandler<User>(User.class));
 	}
 	
+	public List<Order> findcomm() throws SQLException{
+		String sql = "select * from t_order  ";
+		return qr.query(sql, new BeanListHandler<Order>(Order.class));
+	}
+	
 	public void delete(String uid) throws SQLException {
 		String sql = "UPDATE t_user SET status = 2 WHERE uid =?";
 		qr.update(sql, uid);
@@ -39,5 +45,15 @@ public class AdminDao {
 	public void delete1(String uid) throws SQLException {
 		String sql = "UPDATE t_user SET status = 1 WHERE uid =?";
 		qr.update(sql, uid);
+	}
+	
+	public void deletecomm(String oid) throws SQLException {
+		String sql = "UPDATE t_order SET commsta = 2 WHERE oid =?";
+		qr.update(sql, oid);
+	}
+	
+	public void deletecomm1(String oid) throws SQLException {
+		String sql = "UPDATE t_order SET commsta = 1 WHERE oid =?";
+		qr.update(sql, oid);
 	}
 }

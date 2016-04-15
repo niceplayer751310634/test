@@ -11,7 +11,9 @@ public class Order {
 	private int status;//订单状态：1未付款, 2已付款但未发货, 3已发货未确认收货, 4确认收货了交易成功, 5已取消(只有未付款才能取消)
 	private String address;//收货地址
 	private User owner;//订单的所有者
-	
+	private String comm;//评论
+	private int commsta;//评论状态
+		
 	private List<OrderItem> orderItemList;
 	
 	public List<OrderItem> getOrderItemList() {
@@ -56,6 +58,16 @@ public class Order {
 	public void setOwner(User owner) {
 		this.owner = owner;
 	}
-	
-	
+	public String getcomm() {
+		return comm;
+	}
+	public void setcomm(String comm) {
+		this.comm = comm;
+	}
+	public int getcommsta() {
+		return commsta;
+	}
+	public void setcommsta(int commsta) {
+		this.commsta = commsta;
+	}
 }

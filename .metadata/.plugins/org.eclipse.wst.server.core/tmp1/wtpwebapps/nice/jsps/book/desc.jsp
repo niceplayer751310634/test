@@ -61,6 +61,10 @@
   			</form>
   			<a id="btn" href="javascript:$('#form1').submit();"></a>
   		</div>
+  		<div>
+		评论
+		
+		</div>
 	</div>
   </div>
   </body>

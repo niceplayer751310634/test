@@ -46,6 +46,11 @@ public class OrderDao {
 		qr.update(sql, status, oid);
 	}
 	
+	public void updatecomm(String oid, String comm) throws SQLException {
+		String sql = "update t_order set comm=? , commsta=? where oid=?";
+		qr.update(sql, comm, 1, oid);
+	}
+	
 	/**
 	 * 加载订单
 	 * @param oid

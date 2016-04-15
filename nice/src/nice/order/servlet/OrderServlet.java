@@ -1,7 +1,5 @@
 package nice.order.servlet;
 
-
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -24,18 +22,9 @@ import nice.user.domain.User;
 import nice.servlet.BaseServlet;
 
 public class OrderServlet extends BaseServlet {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private OrderService orderService = new OrderService();
 	private CartItemService cartItemService = new CartItemService();
-
-	/**
-	 * 获取当前页码
-	 * @param req
-	 * @return
-	 */
 	private int getPc(HttpServletRequest req) {
 		int pc = 1;
 		String param = req.getParameter("pc");
@@ -46,17 +35,8 @@ public class OrderServlet extends BaseServlet {
 		}
 		return pc;
 	}
-	
-	/**
-	 * 截取url，页面中的分页导航中需要使用它做为超链接的目标！
-	 * @param req
-	 * @return
-	 */
 	private String getUrl(HttpServletRequest req) {
 		String url = req.getRequestURI() + "?" + req.getQueryString();
-		/*
-		 * 如果url中存在pc参数，截取掉，如果不存在那就不用截取。
-		 */
 		int index = url.lastIndexOf("&pc=");
 		if(index != -1) {
 			url = url.substring(0, index);
@@ -64,28 +44,12 @@ public class OrderServlet extends BaseServlet {
 		return url;
 	}
 	
-	/**
-	 * 支付准备
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String paymentPre(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		req.setAttribute("order", orderService.load(req.getParameter("oid")));
 		return "f:/jsps/order/pay.jsp";
 	}
 
-	/**
-	 * 支付方法
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String payment(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String oid = req.getParameter("oid");
@@ -210,20 +174,9 @@ public class OrderServlet extends BaseServlet {
 		return null;
 	}
 	
-	/**
-	 * 取消订单
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String cancel(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String oid = req.getParameter("oid");
-		/*
-		 * 校验订单状态
-		 */
 		int status = orderService.findStatus(oid);
 		if(status != 1) {
 			req.setAttribute("code", "error");
@@ -236,14 +189,6 @@ public class OrderServlet extends BaseServlet {
 		return "f:/jsps/msg.jsp";		
 	}
 	
-	/**
-	 * 确认收货
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String confirm(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String oid = req.getParameter("oid");
@@ -262,37 +207,28 @@ public class OrderServlet extends BaseServlet {
 		return "f:/jsps/msg.jsp";		
 	}
 	
-	/**
-	 * 加载订单
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
+	public String comment(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		String oid = req.getParameter("oid");
+		String comm = req.getParameter("comment1");
+		orderService.updatecomm(oid,comm);
+		req.setAttribute("code", "success");
+		req.setAttribute("msg", "恭喜，评论成功！");
+		return "f:/jsps/msg.jsp";
+	}
+	
 	public String load(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String oid = req.getParameter("oid");
 		Order order = orderService.load(oid);
 		req.setAttribute("order", order);
-		String btn = req.getParameter("btn");//btn说明了用户点击哪个超链接来访问本方法的
+		String btn = req.getParameter("btn");
 		req.setAttribute("btn", btn);
 		return "/jsps/order/desc.jsp";
 	}
 	
-	/**
-	 * 生成订单
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String createOrder(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		/*
-		 * 1. 获取所有购物车条目的id，查询之
-		 */
 		String cartItemIds = req.getParameter("cartItemIds");
 		List<CartItem> cartItemList = cartItemService.loadCartItems(cartItemIds);
 		if(cartItemList.size() == 0) {
@@ -300,9 +236,6 @@ public class OrderServlet extends BaseServlet {
 			req.setAttribute("msg", "您没有选择要购买的商品，不能下单！");
 			return "f:/jsps/msg.jsp";
 		}
-		/*
-		 * 2. 创建Order
-		 */
 		Order order = new Order();
 		order.setOid(CommonUtils.uuid());//设置主键
 		order.setOrdertime(String.format("%tF %<tT", new Date()));//下单时间
@@ -315,16 +248,11 @@ public class OrderServlet extends BaseServlet {
 		for(CartItem cartItem : cartItemList) {
 			total = total.add(new BigDecimal(cartItem.getSubtotal() + ""));
 		}
-		order.setTotal(total.doubleValue());//设置总计
-		
-		/*
-		 * 3. 创建List<OrderItem>
-		 * 一个CartItem对应一个OrderItem
-		 */
+		order.setTotal(total.doubleValue());
 		List<OrderItem> orderItemList = new ArrayList<OrderItem>();
 		for(CartItem cartItem : cartItemList) {
 			OrderItem orderItem = new OrderItem();
-			orderItem.setOrderItemId(CommonUtils.uuid());//设置主键
+			orderItem.setOrderItemId(CommonUtils.uuid());
 			orderItem.setQuantity(cartItem.getQuantity());
 			orderItem.setSubtotal(cartItem.getSubtotal());
 			orderItem.setBook(cartItem.getBook());
@@ -332,17 +260,8 @@ public class OrderServlet extends BaseServlet {
 			orderItemList.add(orderItem);
 		}
 		order.setOrderItemList(orderItemList);
-		
-		/*
-		 * 4. 调用service完成添加
-		 */
 		orderService.createOrder(order);
-		
-		// 删除购物车条目
 		cartItemService.batchDelete(cartItemIds);
-		/*
-		 * 5. 保存订单，转发到ordersucc.jsp
-		 */
 		req.setAttribute("order", order);
 		return "f:/jsps/order/ordersucc.jsp";
 	}
@@ -357,26 +276,10 @@ public class OrderServlet extends BaseServlet {
 	 */
 	public String myOrders(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		/*
-		 * 1. 得到pc：如果页面传递，使用页面的，如果没传，pc=1
-		 */
 		int pc = getPc(req);
-		/*
-		 * 2. 得到url：...
-		 */
 		String url = getUrl(req);
-		/*
-		 * 3. 从当前session中获取User
-		 */
 		User user = (User)req.getSession().getAttribute("sessionUser");
-		
-		/*
-		 * 4. 使用pc和cid调用service#findByCategory得到PageBean
-		 */
 		PageBean<Order> pb = orderService.myOrders(user.getUid(), pc);
-		/*
-		 * 5. 给PageBean设置url，保存PageBean，转发到/jsps/book/list.jsp
-		 */
 		pb.setUrl(url);
 		req.setAttribute("pb", pb);
 		return "f:/jsps/order/list.jsp";

@@ -32,8 +32,11 @@
   	<div>
 	<form action="<c:url value='/AdminServlet'/>" method="post" onsubmit="return checkForm()" target="_top">
 		<input type="hidden" name="method" value="login"/>
+		<br/>
 		管理员账户：<input type="text" name="adminname" value="" id="adminname"/><br/>
+		<br/>
 		密　　　码：<input type="password" name="adminpwd" id="adminpwd"/><br/>
+		<br/>
 		<input type="submit" value="进入后台"/>
 	</form>
 	</div>
