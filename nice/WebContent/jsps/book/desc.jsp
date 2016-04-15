@@ -31,7 +31,7 @@
 		<table>
 			<tr>
 				<td colspan="3">
-					卖家：${book.author } 著
+					卖家：${book.author }
 				</td>
 			</tr>
 			<tr>

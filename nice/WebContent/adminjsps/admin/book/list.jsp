@@ -60,12 +60,6 @@
 					</div>
 				</li>
 			</c:forEach>
-
-
-
-
-
-
 		</ul>
 	</div>
 	<div style="float: left; width: 100%; text-align: center;">

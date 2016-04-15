@@ -12,6 +12,5 @@
   
   <body style="margin: 0px;">
   	<h1 align="center">欢迎回来管理员</h1>
-    <%-- <img src="<c:url value=''/>" width="100%" height="100%"/> --%>
   </body>
 </html>

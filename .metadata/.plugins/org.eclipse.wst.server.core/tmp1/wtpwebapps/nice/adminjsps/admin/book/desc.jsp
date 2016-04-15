@@ -179,17 +179,17 @@ function editForm() {
 				<td>
 					一级分类：<select name="pid" id="pid" onchange="loadChildren()">
 						<option value="">==请选择1级分类==</option>
-<c:forEach items="${parents }" var="parent">
-  <option value="${parent.cid }" <c:if test="${book.category.parent.cid eq parent.cid }">selected="selected"</c:if>>${parent.cname }</option>
-</c:forEach>
+	<c:forEach items="${parents }" var="parent">
+	  <option value="${parent.cid }" <c:if test="${book.category.parent.cid eq parent.cid }">selected="selected"</c:if>>${parent.cname }</option>
+	</c:forEach>
 					</select>
 				</td>
 				<td>
 					二级分类：<select name="cid" id="cid">
 						<option value="">==请选择2级分类==</option>
-<c:forEach items="${children }" var="child">
-  <option value="${child.cid }" <c:if test="${book.category.cid eq child.cid }">selected="selected"</c:if>>${child.cname }</option>
-</c:forEach>
+	<c:forEach items="${children }" var="child">
+	  <option value="${child.cid }" <c:if test="${book.category.cid eq child.cid }">selected="selected"</c:if>>${child.cname }</option>
+	</c:forEach>
 					</select>
 				</td>
 				<td></td>

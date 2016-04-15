@@ -13,8 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/adminjsps/admin/css/book.css'/>">
   </head> 
   <body>
-  	<iframe class="div1" width="190px" height="90%" frameborder="0" src="<c:url value='/admin/AdminBookServlet?method=findCategoryAll'/>" name="left"></iframe>
-	<iframe class="div2" width="900px" frameborder="0" src="<c:url value='/adminjsps/admin/book/body.jsp'/>" name="body"></iframe>
+  	<iframe class="div1" width="190px" frameborder="0" src="<c:url value='/admin/AdminBookServlet?method=findCategoryAll'/>" name="left"></iframe>
+	<iframe class="div2" width="85%" frameborder="0" src="<c:url value='/adminjsps/admin/book/body.jsp'/>" name="body"></iframe>
   </body>
 </html>
 	
