@@ -9,6 +9,7 @@
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/login.css'/>">
 	<script type="text/javascript" src="<c:url value='/jquery/jquery-1.5.1.js'/>"></script>
 	<script type="text/javascript">
 		function checkForm() {
@@ -27,7 +28,6 @@
   
   <body>
 	<h1>管理员登录页面</h1>
-	<hr/>
   	<p>${msg}</p>
   	<div>
 	<form action="<c:url value='/AdminServlet'/>" method="post" onsubmit="return checkForm()" target="_top">

@@ -1,0 +1,15 @@
+body{
+	margin: 0;
+}
+
+h1{
+	border: 1px solid #000000;
+	margin: 0;
+	text-align: center;
+	background-color: #80a0ff;
+	line-height: 50px;
+}
+
+form{
+	text-align: center;
+}
