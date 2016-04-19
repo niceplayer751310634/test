@@ -16,7 +16,7 @@
   
 	<body>
 	<div class="divOrder">
-		<span>订单号：${oder.oid } <c:choose>
+		<span>订单号：${order.oid } <c:choose>
 				<c:when test="${order.status eq 1 }">(等待付款)</c:when>
 				<c:when test="${order.status eq 2 }">(准备发货)</c:when>
 				<c:when test="${order.status eq 3 }">(等待确认)</c:when>

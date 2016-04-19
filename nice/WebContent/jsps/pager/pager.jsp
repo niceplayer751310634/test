@@ -14,7 +14,8 @@
 		location = "${pb.url}&pc=" + pc;
 	}
 </script>
-<div class="divBody">
+<hr/>
+<div style="text-align: right;">
 	<div class="divContent">
 		<c:choose>
 			<c:when test="${pb.pc eq 1 }">
