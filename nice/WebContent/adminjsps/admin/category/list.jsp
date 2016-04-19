@@ -8,9 +8,7 @@
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	
-	
+	<meta http-equiv="expires" content="0">    	
 	<link rel="stylesheet" type="text/css" href="<c:url value='/adminjsps/admin/css/category/list.css'/>">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/css.css'/>">
   </head>
@@ -21,7 +19,7 @@
     	<caption class="captionAddOneLevel">
     	  <a href="<c:url value='/adminjsps/admin/category/add.jsp'/>">添加一级分类</a>
     	</caption>
-    	<tr class="trTitle">
+    	<tr>
     		<th>分类名称</th>
     		<th>描述</th>
     		<th>操作</th>
@@ -29,7 +27,7 @@
 	<c:forEach items="${parents }" var="parent">    	
 	    	<tr class="trOneLevel">
 	    		<td width="200px;">${parent.cname }</td>
-	    		<td>${parent.desc }</td>
+	    		<td width="200px;">${parent.desc }</td>
 	    		<td width="200px;">
 	    		  <a href="<c:url value='/admin/AdminCategoryServlet?method=addChildPre&pid=${parent.cid }'/>">添加二级分类</a>
 	    		  <a href="<c:url value='/admin/AdminCategoryServlet?method=editParentPre&cid=${parent.cid }'/>">修改</a>
@@ -47,8 +45,6 @@
 	    	</tr>
 	   </c:forEach>
 	</c:forEach>
-
-
     </table>
   </body>
 </html>

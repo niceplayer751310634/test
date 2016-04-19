@@ -8,16 +8,19 @@
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/css.css'/>" />
   </head>
   <body style="background: white;">
     <h2 style="text-align: center;">评论列表</h2>
     <table align="center" border="1" cellpadding="0" cellspacing="0">
     	<tr class="trTitle">
-    		<th width="100px;">评论</th>
-    		<th width="100px;">操作</th>
+    		<th width="400px;">订单号</th>
+    		<th width="200px;">评    论</th>
+    		<th width="100px;">操    作</th>
     	</tr>
 	<c:forEach items="${order}" var="order">    	
 	    <tr>
+	    	<td align="center"><a href="<c:url value='/admin/AdminOrderServlet?method=load&oid=${order.oid }'/>">${order.oid }</a></td>
 	    	<td align="center">${order.comm }</td>
 	    	<td align="center">
 	    	  <c:if test="${order.commsta == 1}">

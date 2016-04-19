@@ -12,9 +12,7 @@ import nice.admin.admin.service.AdminService;
 import nice.servlet.BaseServlet;
 
 public class AdminServlet extends BaseServlet {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private AdminService adminService = new AdminService();
 	

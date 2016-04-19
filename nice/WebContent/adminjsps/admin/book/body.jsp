@@ -7,8 +7,7 @@
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
-	
-		
+	<link rel="stylesheet" type="text/css" href="<c:url value='/adminjsps/admin/css/top.css'/>">	
   </head>
   <body>
 	<h1 align="center">商品管理</h1>

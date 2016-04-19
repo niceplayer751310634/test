@@ -4,38 +4,10 @@
 <html>
   <head>
     <title>按名查询</title>
-    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">
-	<style type="text/css">
-		body {
-		margin-top: 5px;
-		margin-bottom: 0px;
-		margin-left:200px;
-		color: #80ffff;
-		}
-		input {
-		width: 300px;
-		height: 30px;
-		border-style:solid;
-		margin:0px;
-		border-color: #80ffff;
-		}
-		a {
-		text-transform:none;
-		text-decoration:none;
-		border-width: 0px;
-		color:black;
-		} 
-		a:hover {
-		text-decoration:none;
-		border-width: 0px;
-		}
-		span {
-		margin: 0px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="<c:url value='/jsps/css/search.css'/>">
   </head>
   
   <body>

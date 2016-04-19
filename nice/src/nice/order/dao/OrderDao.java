@@ -34,7 +34,7 @@ public class OrderDao {
 	
 	public void updatecomm(String oid, String comm) throws SQLException {
 		String sql = "update t_order set comm=? , commsta=? where oid=?";
-		qr.update(sql, comm, 1, oid);
+		qr.update(sql, comm, "1", oid);
 	}
 	public Order load(String oid) throws SQLException {
 		String sql = "select * from t_order where oid=?";
@@ -45,7 +45,6 @@ public class OrderDao {
 	
 	public List<Order> findcomm(String bid) throws SQLException{
 		String sql = "select * from t_order where commsta=1 and oid in (select oid from t_orderitem where bid=?)";
-		String sql1= "select * from t_order where commsta=1";
 		return qr.query(sql, new BeanListHandler<Order>(Order.class),bid);
 	}
 	
@@ -53,7 +52,7 @@ public class OrderDao {
 		String sql = "insert into t_order values(?,?,?,?,?,?,?,?)";
 		Object[] params = {order.getOid(), order.getOrdertime(),
 				order.getTotal(),order.getStatus(),order.getAddress(),
-				order.getOwner().getUid(),null,1};
+				order.getOwner().getUid(),null,0};
 		qr.update(sql, params);
 		sql = "insert into t_orderitem values(?,?,?,?,?,?,?,?)";
 		int len = order.getOrderItemList().size();

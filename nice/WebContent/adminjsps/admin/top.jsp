@@ -4,8 +4,7 @@
 <html>
   <head>
     <title>top</title>
-    <base target="body">
-    
+    <base target="body"> 
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">

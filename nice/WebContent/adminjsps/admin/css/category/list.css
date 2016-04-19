@@ -3,19 +3,12 @@ body {
 }
 
 table {
-	font-family: 宋体;
-	font-size: 11pt;
 	border-color: rgb(78, 78, 78);
 	width: 60%;
 }
 
 td {
 	padding: 5px;
-}
-
-.trTitle {
-	background: rgb(78, 78, 78);
-	color: #fff;
 }
 
 .trOneLevel {

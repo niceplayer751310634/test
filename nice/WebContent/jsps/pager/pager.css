@@ -1,7 +1,5 @@
 .bold {font-weight: 900;}
 .divBody {
-	background: url(/nice/images/paginating_bg.png) repeat-x;
-	border-top: 2px solid #FE7C2C;
 	height: 35px;
 	width: 100%;
 	text-align: right;
@@ -11,7 +9,6 @@
 	margin-right: 15px;
 }
 .spanBtnSelect {
-	border: 1px solid #F75A00; 
 	color: #FFFFFF;
 	background-color: #FE7C2C; 
 	text-align:center; 
@@ -58,7 +55,6 @@
 	border: 1px solid #c1c1c1;
 	padding:1px 4px 1px 4px;
 	color: #555555;
-	background: url(/nice/images/qd.png) repeat-x;
 }
 
 a{
