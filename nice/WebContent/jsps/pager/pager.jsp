@@ -57,11 +57,11 @@
 			<span class="spanApostrophe">...</span>
 		</c:if>
 		<c:choose>
-			<c:when test="${pb.pc eq pb.tp }">
-				<span class="spanBtnDisabled">下一页</span>
+			<c:when test="${pb.pc < pb.tp }">
+				<a href="${pb.url }&pc=${pb.pc+1}" class="aBtn bold">下一页</a>
 			</c:when>
 			<c:otherwise>
-				<a href="${pb.url }&pc=${pb.pc+1}" class="aBtn bold">下一页</a>
+				<span class="spanBtnDisabled">下一页</span>
 			</c:otherwise>
 		</c:choose>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

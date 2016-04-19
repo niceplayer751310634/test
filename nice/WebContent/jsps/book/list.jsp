@@ -10,29 +10,22 @@
 		<meta http-equiv="content-type" content="text/html;charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/jsps/css/book/list.css'/>">
 		<link rel="stylesheet" type="text/css" href="<c:url value='/jsps/pager/pager.css'/>" />
-		<script type="text/javascript"
-			src="<c:url value='/jsps/pager/pager.js'/>"></script>
-		<script type="text/javascript"
-			src="<c:url value='/jquery/jquery-1.5.1.js'/>"></script>
-		<script type="text/javascript"
-			src="<c:url value='/jsps/js/book/list.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/jsps/pager/pager.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/jquery/jquery-1.5.1.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/jsps/js/book/list.js'/>"></script>
 	</head>
 	<body>
 		<ul>
 			<c:forEach items="${pb.beanList }" var="book">
 				<li>
 					<div class="inner">
-						<a class="pic"
-							href="<c:url value='/BookServlet?method=load&bid=${book.bid }'/>"><img
-							src="<c:url value='/${book.image_b }'/>" border="0" /></a>
+						<a class="pic" href="<c:url value='/BookServlet?method=load&bid=${book.bid }'/>">
+						<img src="<c:url value='/${book.image_b }'/>" border="0" /></a>
 						<p class="price">
-							<span class="price_n">&yen;${book.currPrice }</span> <span
-								class="price_r">&yen;${book.price }</span> (<span class="price_s">${book.discount }折</span>)
-						</p>
-						<p>
-							<a id="bookname" title="${book.bname }"
-								href="<c:url value='/BookServlet?method=load&bid=${book.bid }'/>">${book.bname }</a>
-						</p>
+							<span class="price_n">&yen;${book.currPrice }</span>
+							<span class="price_r">&yen;${book.price }</span>
+							(<span class="price_s">${book.discount }折</span>)</p>
+						<p><a id="bookname" title="${book.bname }" href="<c:url value='/BookServlet?method=load&bid=${book.bid }'/>">${book.bname }</a></p>
 						<c:url value="/BookServlet" var="authorUrl">
 							<c:param name="method" value="findByAuthor" />
 							<c:param name="author" value="${book.author }" />
@@ -54,7 +47,6 @@
 			</c:forEach>
 		</ul>
 		<div style="float: left; width: 100%; text-align: center;">
-			<hr />
 			<br />
 			<%@include file="/jsps/pager/pager.jsp"%>
 		</div>
