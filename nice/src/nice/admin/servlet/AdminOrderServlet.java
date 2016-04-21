@@ -1,20 +1,23 @@
 package nice.admin.servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import nice.message.service.MessageService;
 import nice.order.domain.Order;
 import nice.order.service.OrderService;
 import nice.pager.PageBean;
 import nice.servlet.BaseServlet;
-
 public class AdminOrderServlet extends BaseServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private OrderService orderService = new OrderService();
+	private MessageService messageService = new MessageService();
 	
 	private int getPc(HttpServletRequest req) {
 		int pc = 1;
@@ -91,7 +94,12 @@ public class AdminOrderServlet extends BaseServlet {
 			req.setAttribute("msg", "状态不对，不能发货！");
 			return "f:/adminjsps/msg.jsp";
 		}
-		orderService.updateStatus(oid, 3);//设置状态为取消！
+		orderService.updateStatus(oid, 3);
+		String uid=orderService.findUid(oid);
+		String mess= "商家已发货请查收";
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date=df.format(new Date());
+		messageService.send(uid, mess, date);
 		req.setAttribute("code", "success");
 		req.setAttribute("msg", "您的订单已发货，请查看物流，马上确认吧！");
 		return "f:/adminjsps/msg.jsp";		

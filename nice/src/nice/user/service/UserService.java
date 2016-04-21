@@ -15,21 +15,9 @@ import nice.user.service.exception.UserException;
 import nice.mail.MailUtils;
 import nice.mail.Mail;
 
-/**
- * 用户模块业务层
- * @author qdmmy6
- *
- */
 public class UserService {
 	private UserDao userDao = new UserDao();
 	
-	/**
-	 * 修改密码
-	 * @param uid
-	 * @param newPass
-	 * @param oldPass
-	 * @throws UserException 
-	 */
 	public void updatePassword(String uid, String newPass, String oldPass) throws UserException {
 
 		try {
@@ -43,11 +31,6 @@ public class UserService {
 		}
 	}
 	
-	/**
-	 * 登录功能
-	 * @param user
-	 * @return
-	 */
 	public User login(User user) {
 		try {
 			return userDao.findByLoginnameAndLoginpass(user.getLoginname(), user.getLoginpass());
@@ -56,11 +39,6 @@ public class UserService {
 		}
 	}
 	
-	/**
-	 * 激活功能
-	 * @param code
-	 * @throws UserException 
-	 */
 	public void activatioin(String code) throws UserException {
 		try {
 			User user = userDao.findByCode(code);
@@ -72,11 +50,6 @@ public class UserService {
 		}
 	}
 	
-	/**
-	 * 用户名注册校验
-	 * @param loginname
-	 * @return
-	 */
 	public boolean ajaxValidateLoginname(String loginname) {
 		try {
 			return userDao.ajaxValidateLoginname(loginname);
@@ -85,11 +58,6 @@ public class UserService {
 		}
 	}
 	
-	/**
-	 * Email校验
-	 * @param email
-	 * @return
-	 */
 	public boolean ajaxValidateEmail(String email) {
 		try {
 			return userDao.ajaxValidateEmail(email);
@@ -98,13 +66,6 @@ public class UserService {
 		}
 	}
 	
-	/**
-	 * 注册功能
-	 * @param user
-	 * @throws SQLException 
-	 * @throws IOException 
-	 * @throws MessagingException 
-	 */
 	public void regist(User user) throws SQLException, IOException, MessagingException {
 		user.setUid(CommonUtils.uuid());
 		user.setStatus(0);

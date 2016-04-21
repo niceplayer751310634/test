@@ -60,6 +60,14 @@
 		<url-pattern>/OrderServlet</url-pattern>
 	</servlet-mapping>
 	<servlet>
+		<servlet-name>MessageServlet</servlet-name>
+		<servlet-class>nice.message.servlet.MessageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MessageServlet</servlet-name>
+		<url-pattern>/MessageServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
 		<servlet-name>AdminServlet</servlet-name>
 		<servlet-class>nice.admin.admin.servlet.AdminServlet</servlet-class>
 	</servlet>
@@ -99,6 +107,14 @@
 		<servlet-name>AdminOrderServlet</servlet-name>
 		<url-pattern>/admin/AdminOrderServlet</url-pattern>
 	</servlet-mapping>
+<!-- 	<servlet>
+		<servlet-name>adminjsps</servlet-name>
+		<jsp-file>/adminjsps/login.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>adminjsps</servlet-name>
+		<url-pattern>/f</url-pattern>
+	</servlet-mapping> -->
 	<filter>
 		<display-name>LoginFilter</display-name>
 		<filter-name>LoginFilter</filter-name>
@@ -119,6 +135,10 @@
 	<filter-mapping>
 		<filter-name>LoginFilter</filter-name>
 		<servlet-name>OrderServlet</servlet-name>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<servlet-name>MessageServlet</servlet-name>
 	</filter-mapping>
 	<filter>
 		<display-name>AdminLoginFilter</display-name>

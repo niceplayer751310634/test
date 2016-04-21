@@ -20,20 +20,10 @@ import nice.user.service.exception.UserException;
 import nice.servlet.BaseServlet;
 
 public class UserServlet extends BaseServlet {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private UserService userService = new UserService();
 	
-	/**
-	 * ajax用户名是否注册校验
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String ajaxValidateLoginname(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String loginname = req.getParameter("loginname");
@@ -42,14 +32,6 @@ public class UserServlet extends BaseServlet {
 		return null;
 	}
 	
-	/**
-	 * ajax Email是否注册校验
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String ajaxValidateEmail(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String email = req.getParameter("email");
@@ -58,14 +40,6 @@ public class UserServlet extends BaseServlet {
 		return null;
 	}
 	
-	/**
-	 * ajax验证码是否正确校验
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String ajaxValidateVerifyCode(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String verifyCode = req.getParameter("verifyCode");
@@ -75,16 +49,6 @@ public class UserServlet extends BaseServlet {
 		return null;
 	}
 
-	/**
-	 * 注册功能
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 * @throws SQLException 
-	 * @throws MessagingException 
-	 */
 	public String regist(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException, SQLException, MessagingException {
 		User formUser = CommonUtils.toBean(req.getParameterMap(), User.class);
@@ -140,14 +104,6 @@ public class UserServlet extends BaseServlet {
 		return errors;
 	}
 	
-	/**
-	 * 激活功能
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String activation(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String code = req.getParameter("activationCode");
@@ -163,14 +119,6 @@ public class UserServlet extends BaseServlet {
 		return "f:/jsps/msg.jsp";
 	}
 	
-	/**
-	 * 修改密码　
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String updatePassword(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		User formUser = CommonUtils.toBean(req.getParameterMap(), User.class);
@@ -199,28 +147,12 @@ public class UserServlet extends BaseServlet {
 		}
 	}
 	
-	/**
-	 * 退出功能
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String quit(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		req.getSession().invalidate();
 		return "r:/jsps/main.jsp";
 	}
 	
-	/**
-	 * 登录功能
-	 * @param req
-	 * @param resp
-	 * @return
-	 * @throws ServletException
-	 * @throws IOException
-	 */
 	public String login(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		User formUser = CommonUtils.toBean(req.getParameterMap(), User.class);

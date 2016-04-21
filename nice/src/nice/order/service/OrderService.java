@@ -11,11 +11,6 @@ import nice.jdbc.JdbcUtils;
 public class OrderService {
 	private OrderDao orderDao = new OrderDao();
 	
-	/**
-	 * 修改订单状态
-	 * @param oid
-	 * @param status
-	 */
 	public void updateStatus(String oid, int status) {
 		try {
 			orderDao.updateStatus(oid, status);
@@ -32,12 +27,6 @@ public class OrderService {
 		}
 	}
 	
-	
-	/**
-	 * 查询订单状态
-	 * @param oid
-	 * @return
-	 */
 	public int findStatus(String oid) {
 		try {
 			return orderDao.findStatus(oid);
@@ -46,11 +35,13 @@ public class OrderService {
 		}
 	}
 	
-	/**
-	 * 加载订单
-	 * @param oid
-	 * @return
-	 */
+	public String findUid(String oid) {
+		try {
+			return orderDao.findUid(oid);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	public Order load(String oid) {
 		try {
 			JdbcUtils.beginTransaction();
@@ -65,10 +56,6 @@ public class OrderService {
 		}
 	}
 	
-	/**
-	 * 生成订单
-	 * @param order
-	 */
 	public void createOrder(Order order) {
 		try {
 			JdbcUtils.beginTransaction();

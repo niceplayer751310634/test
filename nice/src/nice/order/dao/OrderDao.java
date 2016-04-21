@@ -22,11 +22,19 @@ import nice.jdbc.TxQueryRunner;
 
 public class OrderDao {
 	private QueryRunner qr = new TxQueryRunner();
+	
 	public int findStatus(String oid) throws SQLException {
 		String sql = "select status from t_order where oid=?";
 		Number number = (Number)qr.query(sql, new ScalarHandler(), oid);
 		return number.intValue();
 	}
+	
+	public String findUid(String oid) throws SQLException {
+		String sql = "select uid from t_order where oid=?";
+		String uid = (String)qr.query(sql, new ScalarHandler(), oid);
+		return uid;
+	}
+	
 	public void updateStatus(String oid, int status) throws SQLException {
 		String sql = "update t_order set status=? where oid=?";
 		qr.update(sql, status, oid);
