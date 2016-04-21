@@ -13,12 +13,12 @@
   
   <body>
 	<table class="table" align="center">
-		<tr class="tr">
-			<td align="center" height="100px;" >
+		<tr>
+			<td align="center" height="120px;" width="1600px;" >
 				<iframe frameborder="0" src="<c:url value='/adminjsps/admin/top.jsp'/>" name="top"></iframe>
 			</td>
 		</tr>
-		<tr class="tr">
+		<tr>
 			<td>
 				<iframe frameborder="0" src="<c:url value='/adminjsps/admin/body.jsp'/>" name="body"></iframe>
 			</td>

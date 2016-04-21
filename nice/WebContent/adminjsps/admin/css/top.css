@@ -1,5 +1,12 @@
+*{
+	color: white;
+}
+
+body{
+	background-image: url("/nice/images/top.jpg");	
+}
+
 a {
-	color: orange;
 	text-decoration:none;
 }
 

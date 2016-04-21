@@ -12,9 +12,9 @@
 	<meta http-equiv="expires" content="0">
 	
 	 <!-- CSS -->
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/supersized.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/user/css/reset.css'/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/user/css/supersized.css'/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/user/css/style.css'/>">
         <%-- <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/css/user/regist.css'/>"> --%>
         
       <!-- Javascript -->

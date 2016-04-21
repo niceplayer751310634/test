@@ -11,17 +11,17 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/adminjsps/admin/css/top.css'/>">
   </head> 
   <body>
-	<h1>网上购物系统后台管理</h1>
-	<div style="line-height: 10px;">
-	<span>管理员：${sessionScope.admin.adminname }</span>
-	<a target="_top" href="<c:url value='/adminjsps/login.jsp'/>">退出</a>
-	<span style="padding-left:50px;">
-		<a href="<c:url value='/AdminServlet?method=findAll'/>">用户管理</a>
-		<a href="<c:url value='/admin/AdminCategoryServlet?method=findAll'/>">分类管理</a>
-		<a href="<c:url value='/adminjsps/admin/book/main.jsp'/>">商品管理</a>
-		<a href="<c:url value='/AdminServlet?method=findcomm'/>">评论管理</a>
-		<a href="<c:url value='/admin/AdminOrderServlet?method=findAll'/>">订单管理</a>
-	</span>
+	<div style="line-height: 10px; text-align: right;">
+		<span>管理员：${sessionScope.admin.adminname }</span>
+		<a target="_top" href="<c:url value='/adminjsps/login.jsp'/>">退出</a>
+		<span style="padding-left:50px;">
+			<a href="<c:url value='/AdminServlet?method=findAll'/>">用户管理</a>
+			<a href="<c:url value='/admin/AdminCategoryServlet?method=findAll'/>">分类管理</a>
+			<a href="<c:url value='/adminjsps/admin/book/main.jsp'/>">商品管理</a>
+			<a href="<c:url value='/AdminServlet?method=findcomm'/>">评论管理</a>
+			<a href="<c:url value='/admin/AdminOrderServlet?method=findAll'/>">订单管理</a>
+		</span>
 	</div>
+	<h1>网上购物系统后台管理</h1>
   </body>
 </html>

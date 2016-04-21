@@ -9,21 +9,31 @@
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/login.css'/>">
-	<script type="text/javascript" src="<c:url value='/jquery/jquery-1.5.1.js'/>"></script>
-	<script type="text/javascript">
-		function checkForm() {
-			if(!$("#adminname").val()) {
-				alert("管理员名称不能为空！");
-				return false;
+	
+	<!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/user/css/reset.css'/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/user/css/supersized.css'/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/user/css/style.css'/>">
+		<%-- <link rel="stylesheet" type="text/css" href="<c:url value='/css/login.css'/>"> --%>
+		
+	<!-- Javascript -->
+	 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script>
+		<script type="text/javascript" src="<c:url value='/jsps/user/js/supersized.3.2.7.min.js'/>"></script>
+	    <script type="text/javascript" src="<c:url value='/jsps/user/js/supersized-init.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='/jquery/jquery-1.5.1.js'/>"></script>
+		<script type="text/javascript">
+			function checkForm() {
+				if(!$("#adminname").val()) {
+					alert("管理员名称不能为空！");
+					return false;
+				}
+				if(!$("#adminpwd").val()) {
+					alert("管理员密码不能为空！");
+					return false;
+				}
+				return true;
 			}
-			if(!$("#adminpwd").val()) {
-				alert("管理员密码不能为空！");
-				return false;
-			}
-			return true;
-		}
-	</script>
+		</script>
   </head>
   
   <body>

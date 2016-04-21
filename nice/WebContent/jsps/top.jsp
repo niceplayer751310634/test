@@ -12,8 +12,7 @@
   </head>
   
   <body>
-	<h1>网上购物系统</h1>
-	<div>
+	<div align="right">
 	<c:choose>
 		<c:when test="${empty sessionScope.sessionUser }">
 		  <a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">会员登录</a> |&nbsp; 
@@ -28,6 +27,9 @@
 		  <a href="<c:url value='/UserServlet?method=quit'/>" target="_parent">退出</a>&nbsp;&nbsp;|&nbsp;&nbsp;	
 		</c:otherwise>
 	</c:choose>
+	</div>
+	<div class="div1">
+		<span>网上购物系统<iframe class="iframe1" frameborder="0" src="<c:url value='/jsps/search/search.jsp'/>" name="search"></iframe></span>
 	</div>
   </body>
 </html>

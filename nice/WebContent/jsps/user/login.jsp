@@ -11,13 +11,13 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
 	
 	 <!-- CSS -->
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/supersized.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/user/css/reset.css'/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/user/css/supersized.css'/>">
+        <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/user/css/style.css'/>">
 		<%-- <link rel="stylesheet" type="text/css" href="<c:url value='/jsps/css/user/login.css'/>"> --%>
 	
 	 <!-- Javascript -->
-	 	<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+	 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js"></script>
 		<script type="text/javascript" src="<c:url value='/jsps/user/js/supersized.3.2.7.min.js'/>"></script>
 	    <script type="text/javascript" src="<c:url value='/jsps/user/js/supersized-init.js'/>"></script>
 		<script type="text/javascript" src="<c:url value='/jquery/jquery-1.5.1.js'/>"></script>

@@ -18,14 +18,9 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="tdLeft" rowspan="2">
+			<td class="tdLeft">
 				<iframe frameborder="0" src="<c:url value='/CategoryServlet?method=findAll'/>" name="left"></iframe>
 			</td>
-			<td class="tdSearch" style="border-bottom-width: 0px;">
-				<iframe frameborder="0" src="<c:url value='/jsps/search.jsp'/>" name="search"></iframe>
-			</td>
-		</tr>
-		<tr>
 			<td style="border-top-width: 0px;">
 				<iframe  frameborder="0" src="<c:url value='/jsps/body.jsp'/>" name="body"></iframe>
 			</td>
