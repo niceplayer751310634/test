@@ -1,0 +1,20 @@
+table {
+	font-size: 10pt;
+}
+
+td {
+	padding-left: 5px;
+}
+
+body {
+	font-size: 10pt;
+	color: #404040;
+}
+
+.price_t {
+	color: #c30;
+	font-weight: bold;
+	padding-right: 10px;
+	font-family: Arial;
+	font-size: 10pt;
+}

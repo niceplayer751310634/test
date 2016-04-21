@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="将“login”移至“webapp”" description="将“login”移至“webapp”" destination="src/main/webapp" element1="src/main/webapp/WEB-INF/login" flags="7" id="org.eclipse.ltk.core.refactoring.move.resources" resources="1" stamp="1461200999446" updateReferences="true"/>
+</session>
